@@ -1,6 +1,6 @@
 <div align="center">
 
-# Docker image for Aphrodite Engine
+# Docker image for Aphrodite Engine with OpenAI API, KoboldAI API and KoboldAI Lite Web UI
 
 [![GitHub Repo](https://img.shields.io/badge/github-repo-green?logo=github)](https://github.com/ashleykleynhans/aphrodite-engine-docker)
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/ashleykza/aphrodite-engine?logo=docker&label=dockerhub&color=blue)](https://hub.docker.com/repository/docker/ashleykza/aphrodite-engine)
