@@ -102,8 +102,8 @@ You can obviously substitute the image name and tag with your own.
 - `NUM_GPUS`: The number of GPUs to use. By default, this is 1. Set this to however many GPUs you have allocated for your pod.
 - `GPU_MEMORY_UTILIZATION`: By default, Aphrodite uses 90% of the entire available VRAM. Limit this behavior by setting it from the default 0.9 to a lower (or higher) value.
 - `QUANTIZATION`: The quantization method to use. Currently supported are `exl2`, `awq`, `gptq`, `gguf`, `aq|m`, `quip#`, `squeeze|lm`. GGUF needs individual files, so it is currently not supported with this image.
-- `ENFORCE_EAGER`: Use eager mode for model execution. Set to `True` to enable. This will save some VRAM but will slightly reduce throughput.
-- `KOBOLD_API`: Set this to `1` to enable the KoboldAI-compatible API in additional to the OpenAI compatible API. This will also launch a web UI at port 5000.
+- `ENFORCE_EAGER`: Use eager mode for model execution. Set to `1` to enable. This will save some VRAM but will slightly reduce throughput.
+- `KOBOLD_API`: Set this to `1` to enable the KoboldAI-compatible API in addition to the OpenAI compatible API. This will also launch a web UI at port 5000.
 - `CMD_ADDITIONAL_ARGUMENTS`: Use this to set additional CLI arguments, such as `--load-in-4bit` to load FP16 models in 4bit format. Once you've deployed, please keep an eye on the Logs until you see a successful engine start process.
 - `HF_TOKEN`: Your HuggingFace token for private and gated models.
 - `HF_HUB_ENABLE_HF_TRANSFER`: For faster downloads.
@@ -113,7 +113,7 @@ You can obviously substitute the image name and tag with your own.
 
 | Variable                  | Value                              |
 |---------------------------|------------------------------------|
-| MODEL_NAME                | mistralai/Mistral-7B-Instruct-v0.3 |
+| MODEL_NAME                | mistralai/Mistral-7B-Instruct-v0.2 |
 | REVISION                  | (not set)                          |
 | DATATYPE                  | (not set)                          |
 | KVCACHE                   | fp8                                |
@@ -121,7 +121,7 @@ You can obviously substitute the image name and tag with your own.
 | NUM_GPUS                  | (not set)                          |
 | GPU_MEMORY_UTILIZATION    | 0.95                               |
 | QUANTIZATION              | (not set)                          |
-| ENFORCE_EAGER             | False                              |
+| ENFORCE_EAGER             | 0                                  |
 | KOBOLD_API                | 1                                  |
 | CMD_ADDITIONAL_ARGUMENTS  | --load-in-4bit --max-log-len 0     |
 | HF_TOKEN                  | (not set)                          |
