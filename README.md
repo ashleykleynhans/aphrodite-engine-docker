@@ -73,7 +73,15 @@ docker run -d \
   -p 5000:5001 \
   -p 7777:7777 \
   -p 8888:8888 \
-  -e JUPYTER_PASSWORD=Jup1t3R! \
+  -e MODEL_NAME=mistralai/Mistral-7B-Instruct-v0.2 \
+  -e ENFORCE_EAGER=0 \
+  -e NUMBA_CACHE_DIR=/tmp/numba_cache \
+  -e GPU_MEMORY_UTILIZATION=0.95 \
+  -e KVCACHE=fp8 \
+  -e CMD_ADDITIONAL_ARGUMENTS="--load-in-4bit --max-log-len 0" \
+  -e KOBOLD_API=1 \
+  -e HF_HUB_ENABLE_HF_TRANSFER=1 \
+  -e HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxxxxxxx \
   ashleykza/aphrodite-engine:latest
 ```
 
