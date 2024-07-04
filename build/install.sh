@@ -19,6 +19,6 @@ pip3 install -U aphrodite-engine --extra-index-url https://downloads.pygmalion.c
 pip3 install flash_attn
 
 # Install requirements for Gradio Web UI
-pip3 install gradio==3.50.2 requests
+#pip3 install gradio==3.50.2 requests
 
 deactivate

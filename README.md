@@ -81,14 +81,21 @@ You can obviously substitute the image name and tag with your own.
 
 ### Ports
 
-| Connect Port | Internal Port | Description                              |
-|--------------|---------------|------------------------------------------|
-| 3000         | 3001          | Gradio Web UI                            |
-| 5000         | 5001          | KoboldAI Web UI                          |
-| 7777         | 7777          | Code Server                              |
-| 7860         | 7861          | Aphrodite Engine (OpenAI compatible API) |
-| 8888         | 8888          | Jupyter Lab                              |
-| 2999         | 2999          | RunPod File Uploader                     |
+| Connect Port | Internal Port | Description                                      |
+|--------------|---------------|--------------------------------------------------|
+| 5000         | 5001          | OpenAI API + KoboldAI API + KoboldAI Lite Web UI |
+| 7777         | 7777          | Code Server                                      |
+| 7860         | 7861          | Aphrodite Engine (OpenAI compatible API)         |
+| 8888         | 8888          | Jupyter Lab                                      |
+| 2999         | 2999          | RunPod File Uploader                             |
+
+### Endpoints (Port 5000)
+
+| Endpoint Base URI | Description           |
+|-------------------|-----------------------|
+| /                 | KoboldAI Lite Web UI  |
+| /api/v1/          | KoboldAI API          |
+| /v1/              | OpenAI Compatible API |
 
 ### Environment Variables
 
@@ -145,7 +152,6 @@ killing the service to view the logs
 | Application      | Log file                             |
 |------------------|--------------------------------------|
 | aphrodite-engine | /workspace/logs/aphrodite-engine.log |
-| Gradio Web UI    | /workspace/logs/gradio-web-ui.log    |
 
 ## Community and Contributing
 

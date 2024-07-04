@@ -8,7 +8,7 @@ export HF_HOME="/workspace"
 
 nohup python3 -m aphrodite.endpoints.openai.api_server \
     --host 0.0.0.0 \
-    --port 7861 \
+    --port 5001 \
     --download-dir ${HF_HOME:?}/hub \
     ${MODEL_NAME:+--model $MODEL_NAME} \
     ${REVISION:+--revision $REVISION} \

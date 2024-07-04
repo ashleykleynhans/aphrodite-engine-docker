@@ -48,12 +48,12 @@ then
     echo "   ---------------------------------------------"
     echo "   /start_aphrodite_engine.sh"
     echo ""
-    echo "   Gradio Web UI"
-    echo "   ---------------------------------------------"
-    echo "   /start_gradio_webui.sh"
+#    echo "   Gradio Web UI"
+#    echo "   ---------------------------------------------"
+#    echo "   /start_gradio_webui.sh"
 else
     /start_aphrodite_engine.sh
-    /start_gradio_webui.sh
+#    /start_gradio_webui.sh
 fi
 
 echo "All services have been started"
