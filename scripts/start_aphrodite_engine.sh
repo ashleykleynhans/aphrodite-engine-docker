@@ -3,6 +3,7 @@ export PYTHONUNBUFFERED=1
 echo "Starting aphrodite-engine"
 cd /workspace/aphrodite-engine
 source /venv/bin/activate
+export HF_HOME="/workspace"
 
 nohup python3 -m aphrodite.endpoints.openai.api_server \
     --host 0.0.0.0 \

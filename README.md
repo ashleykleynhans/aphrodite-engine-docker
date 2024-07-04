@@ -93,21 +93,40 @@ You can obviously substitute the image name and tag with your own.
 
 #### Aphrodite Engine Specific Environment Variables
 
-| Variable                  | Description                                                                                                                                        | Default                            |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
-| MODEL_NAME                | The name of the model on [Hugging Face](https://huggingface.co)                                                                                    | mistralai/Mistral-7B-Instruct-v0.3 |
-| REVISION                  | The HuggingFace branch name, it defaults to the main branch.                                                                                       | (not set)                          |
-| DATATYPE                  | Recommended for quantization.                                                                                                                      | (not set)                          |
-| KVCACHE                   | Reduces the GPU memory footprint and boosts the performance. But it may cause slight accuracy drop.                                                | fp8                                |
-| CONTEXT_LENGTH            | The model's maximum context length. By default, it's set to the model's original length. Specify a higher value to automatically use RoPE scaling. | (not set)                          |
-| NUM_GPUS                  | The number of GPUs to use. By default, this is 1. Set this to however many GPUs you have allocated for your pod.                                   | (not set)                          |
-| GPU_MEMORY_UTILIZATION    | By default, Aphrodite uses 90% of the entire available VRAM. Limit this behavior by setting it from the default 0.9 to a lower (or higher) value.  | 0.95                               |
-| QUANTIZATION              | The quantization method to use, eg `awq`.                                                                                                          | (not set)                          |
-| ENFORCE_EAGER             | Use eager mode for model execution. Set to `True` to enable. This will save some VRAM but will slightly reduce throughput.                         | False                              |
-| KOBOLD_API                | Set this to True to use a KoboldAI-compatible API instead. This will also launch a web UI at port 3000.                                            | False                              |
-| CMD_ADDITIONAL_ARGUMENTS  | Use this to set additional CLI arguments, such as `--load-in-4bit` to load FP16 models in 4bit format.                                             | --load-in-4bit --max-log-len 0     |
-| HF_HUB_ENABLE_HF_TRANSFER | For faster downloads.                                                                                                                              | 1                                  |
-| NUMBA_CACHE_DIR           |                                                                                                                                                    | /tmp/numba_cache                   |
+- `MODEL_NAME`: The name of the model on [Hugging Face](https://huggingface.co).
+- `REVISION`: The Hugging Face branch name, it defaults to the main branch.
+- `DATATYPE`: Recommended for quantization.
+- `KVCACHE`: Reduces the GPU memory footprint and boosts the performance. But it may cause slight accuracy drop.
+- `CONTEXT_LENGTH`: The model's maximum context length. By default, it's set to the model's original length. Specify a higher value to automatically use RoPE scaling.
+- `NUM_GPUS`: The number of GPUs to use. By default, this is 1. Set this to however many GPUs you have allocated for your pod.
+- `GPU_MEMORY_UTILIZATION`: By default, Aphrodite uses 90% of the entire available VRAM. Limit this behavior by setting it from the default 0.9 to a lower (or higher) value.
+- `QUANTIZATION`: The quantization method to use. Currently supported are `exl2`, `awq`, `gptq`, `gguf`, `aq|m`, `quip#`, `squeeze|lm`. GGUF needs individual files, so it is currently not supported with this image.
+- `ENFORCE_EAGER`: Use eager mode for model execution. Set to `True` to enable. This will save some VRAM but will slightly reduce throughput.
+- `KOBOLD_API`: Set this to `True` to use a KoboldAI-compatible API instead. This will also launch a web UI at port 5000.
+- `CMD_ADDITIONAL_ARGUMENTS`: Use this to set additional CLI arguments, such as `--load-in-4bit` to load FP16 models in 4bit format. Once you've deployed, please keep an eye on the Logs until you see a successful engine start process.
+- `HUGGING_FACE_HUB_TOKEN`: Your HuggingFace token for private models.
+- `HF_HUB_ENABLE_HF_TRANSFER`: For faster downloads.
+- `API_KEY`: A single or a list of comma-separated API keys to use for the OpenAI endpoint. Use this to secure your instance.
+
+##### Default Values
+
+| Variable                  | Value                              |
+|---------------------------|------------------------------------|
+| MODEL_NAME                | mistralai/Mistral-7B-Instruct-v0.3 |
+| REVISION                  | (not set)                          |
+| DATATYPE                  | (not set)                          |
+| KVCACHE                   | fp8                                |
+| CONTEXT_LENGTH            | (not set)                          |
+| NUM_GPUS                  | (not set)                          |
+| GPU_MEMORY_UTILIZATION    | 0.95                               |
+| QUANTIZATION              | (not set)                          |
+| ENFORCE_EAGER             | False                              |
+| KOBOLD_API                | False                              |
+| CMD_ADDITIONAL_ARGUMENTS  | --load-in-4bit --max-log-len 0     |
+| HUGGING_FACE_HUB_TOKEN    | (not set)                          |
+| HF_HUB_ENABLE_HF_TRANSFER | 1                                  |
+| NUMBA_CACHE_DIR           | /tmp/numba_cache                   |
+| API_KEY                   | (not set)                          |
 
 #### Other Environment Variables
 

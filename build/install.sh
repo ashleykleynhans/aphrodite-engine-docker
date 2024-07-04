@@ -15,6 +15,6 @@ pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_UR
 pip3 install -U aphrodite-engine --extra-index-url https://downloads.pygmalion.chat/whl
 
 # Install requirements for Gradio Web UI
-pip3 install gradio requests
+pip3 install gradio==3.50.2 requests
 
 deactivate
