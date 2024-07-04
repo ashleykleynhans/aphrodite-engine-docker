@@ -4,6 +4,7 @@ set -e
 # Create and activate venv
 git clone https://github.com/PygmalionAI/aphrodite-engine.git /aphrodite-engine
 cd /aphrodite-engine
+git checkout ${APHRODITE_VERSION}
 python3 -m venv --system-site-packages /venv
 source /venv/bin/activate
 

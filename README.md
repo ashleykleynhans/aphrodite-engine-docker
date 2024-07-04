@@ -81,13 +81,14 @@ You can obviously substitute the image name and tag with your own.
 
 ### Ports
 
-| Connect Port | Internal Port | Description          |
-|--------------|---------------|----------------------|
-| 3000         | 3001          | Gradio Web UI        |
-| 5000         | 5001          | Aphrodite Engine     |
-| 7777         | 7777          | Code Server          |
-| 8888         | 8888          | Jupyter Lab          |
-| 2999         | 2999          | RunPod File Uploader |
+| Connect Port | Internal Port | Description                              |
+|--------------|---------------|------------------------------------------|
+| 3000         | 3001          | Gradio Web UI                            |
+| 5000         | 5001          | KoboldAI Web UI                          |
+| 7777         | 7777          | Code Server                              |
+| 7860         | 7861          | Aphrodite Engine (OpenAI compatible API) |
+| 8888         | 8888          | Jupyter Lab                              |
+| 2999         | 2999          | RunPod File Uploader                     |
 
 ### Environment Variables
 
@@ -102,7 +103,7 @@ You can obviously substitute the image name and tag with your own.
 - `GPU_MEMORY_UTILIZATION`: By default, Aphrodite uses 90% of the entire available VRAM. Limit this behavior by setting it from the default 0.9 to a lower (or higher) value.
 - `QUANTIZATION`: The quantization method to use. Currently supported are `exl2`, `awq`, `gptq`, `gguf`, `aq|m`, `quip#`, `squeeze|lm`. GGUF needs individual files, so it is currently not supported with this image.
 - `ENFORCE_EAGER`: Use eager mode for model execution. Set to `True` to enable. This will save some VRAM but will slightly reduce throughput.
-- `KOBOLD_API`: Set this to `True` to use a KoboldAI-compatible API instead. This will also launch a web UI at port 5000.
+- `KOBOLD_API`: Set this to `1` to enable the KoboldAI-compatible API in additional to the OpenAI compatible API. This will also launch a web UI at port 5000.
 - `CMD_ADDITIONAL_ARGUMENTS`: Use this to set additional CLI arguments, such as `--load-in-4bit` to load FP16 models in 4bit format. Once you've deployed, please keep an eye on the Logs until you see a successful engine start process.
 - `HF_TOKEN`: Your HuggingFace token for private and gated models.
 - `HF_HUB_ENABLE_HF_TRANSFER`: For faster downloads.
@@ -121,7 +122,7 @@ You can obviously substitute the image name and tag with your own.
 | GPU_MEMORY_UTILIZATION    | 0.95                               |
 | QUANTIZATION              | (not set)                          |
 | ENFORCE_EAGER             | False                              |
-| KOBOLD_API                | False                              |
+| KOBOLD_API                | 1                                  |
 | CMD_ADDITIONAL_ARGUMENTS  | --load-in-4bit --max-log-len 0     |
 | HF_TOKEN                  | (not set)                          |
 | HF_HUB_ENABLE_HF_TRANSFER | 1                                  |
