@@ -4,7 +4,7 @@ set -e
 # Create and activate venv
 git clone https://github.com/PygmalionAI/aphrodite-engine.git /aphrodite-engine
 cd /aphrodite-engine
-python3 -m /venv --system-site-packages venv
+python3 -m venv --system-site-packages /venv
 source /venv/bin/activate
 
 # Install torch and xformers
