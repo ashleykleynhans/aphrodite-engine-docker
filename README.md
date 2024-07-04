@@ -70,8 +70,9 @@ docker run -d \
   --gpus all \
   -v /workspace \
   -p 2999:2999 \
-  -p 3000:3001 \
+  -p 5000:5001 \
   -p 7777:7777 \
+  -p 7860:7861 \
   -p 8888:8888 \
   -e JUPYTER_PASSWORD=Jup1t3R! \
   ashleykza/aphrodite-engine:latest
