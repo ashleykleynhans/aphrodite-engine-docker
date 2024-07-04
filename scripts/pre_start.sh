@@ -44,9 +44,16 @@ then
     echo "Auto launching is disabled so the applications will not be started automatically"
     echo "You can launch them manually using the launcher scripts:"
     echo ""
+    echo "   Aphrodite Engine (API)"
+    echo "   ---------------------------------------------"
     echo "   /start_aphrodite_engine.sh"
+    echo ""
+    echo "   Gradio Web UI"
+    echo "   ---------------------------------------------"
+    echo "   /start_gradio_webui.sh"
 else
     /start_aphrodite_engine.sh
+    /start_gradio_webui.sh
 fi
 
 echo "All services have been started"

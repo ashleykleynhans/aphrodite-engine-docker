@@ -2,7 +2,7 @@
 set -e
 
 # Create and activate venv
-mkdir /aphrodite-engine
+git clone https://github.com/PygmalionAI/aphrodite-engine.git /aphrodite-engine
 cd /aphrodite-engine
 python3 -m /venv --system-site-packages venv
 source /venv/bin/activate
@@ -13,4 +13,8 @@ pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_UR
 
 # Install aphrodite-engine
 pip3 install -U aphrodite-engine --extra-index-url https://downloads.pygmalion.chat/whl
+
+# Install requirements for Gradio Web UI
+pip3 install gradio requests
+
 deactivate

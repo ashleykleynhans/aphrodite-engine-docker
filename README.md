@@ -83,18 +83,39 @@ You can obviously substitute the image name and tag with your own.
 
 | Connect Port | Internal Port | Description          |
 |--------------|---------------|----------------------|
-| 3000         | 3001          | Aphrodite Engine     |
+| 3000         | 3001          | Gradio Web UI        |
+| 5000         | 5001          | Aphrodite Engine     |
 | 7777         | 7777          | Code Server          |
 | 8888         | 8888          | Jupyter Lab          |
 | 2999         | 2999          | RunPod File Uploader |
 
 ### Environment Variables
 
-| Variable             | Description                                      | Default                   |
-|----------------------|--------------------------------------------------|---------------------------|
-| JUPYTER_LAB_PASSWORD | Set a password for Jupyter lab                   | not set - no password     |
-| DISABLE_AUTOLAUNCH   | Disable application from launching automatically | (not set)                 |
-| DISABLE_SYNC         | Disable syncing if using a RunPod network volume | (not set)                 |
+#### Aphrodite Engine Specific Environment Variables
+
+| Variable                  | Description                                                                                                                                        | Default                            |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| MODEL_NAME                | The name of the model on [Hugging Face](https://huggingface.co)                                                                                    | mistralai/Mistral-7B-Instruct-v0.3 |
+| REVISION                  | The HuggingFace branch name, it defaults to the main branch.                                                                                       | (not set)                          |
+| DATATYPE                  | Recommended for quantization.                                                                                                                      | (not set)                          |
+| KVCACHE                   | Reduces the GPU memory footprint and boosts the performance. But it may cause slight accuracy drop.                                                | fp8                                |
+| CONTEXT_LENGTH            | The model's maximum context length. By default, it's set to the model's original length. Specify a higher value to automatically use RoPE scaling. | (not set)                          |
+| NUM_GPUS                  | The number of GPUs to use. By default, this is 1. Set this to however many GPUs you have allocated for your pod.                                   | (not set)                          |
+| GPU_MEMORY_UTILIZATION    | By default, Aphrodite uses 90% of the entire available VRAM. Limit this behavior by setting it from the default 0.9 to a lower (or higher) value.  | 0.95                               |
+| QUANTIZATION              | The quantization method to use, eg `awq`.                                                                                                          | (not set)                          |
+| ENFORCE_EAGER             | Use eager mode for model execution. Set to `True` to enable. This will save some VRAM but will slightly reduce throughput.                         | False                              |
+| KOBOLD_API                | Set this to True to use a KoboldAI-compatible API instead. This will also launch a web UI at port 3000.                                            | False                              |
+| CMD_ADDITIONAL_ARGUMENTS  | Use this to set additional CLI arguments, such as `--load-in-4bit` to load FP16 models in 4bit format.                                             | --load-in-4bit --max-log-len 0     |
+| HF_HUB_ENABLE_HF_TRANSFER | For faster downloads.                                                                                                                              | 1                                  |
+| NUMBA_CACHE_DIR           |                                                                                                                                                    | /tmp/numba_cache                   |
+
+#### Other Environment Variables
+
+| Variable             | Description                                      | Default               |
+|----------------------|--------------------------------------------------|-----------------------|
+| JUPYTER_LAB_PASSWORD | Set a password for Jupyter lab                   | not set - no password |
+| DISABLE_AUTOLAUNCH   | Disable application from launching automatically | (not set)             |
+| DISABLE_SYNC         | Disable syncing if using a RunPod network volume | (not set)             |
 
 ## Logs
 
@@ -104,6 +125,7 @@ killing the service to view the logs
 | Application      | Log file                             |
 |------------------|--------------------------------------|
 | aphrodite-engine | /workspace/logs/aphrodite-engine.log |
+| Gradio Web UI    | /workspace/logs/gradio-web-ui.log    |
 
 ## Community and Contributing
 
