@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 export PYTHONUNBUFFERED=1
 echo "Starting aphrodite-engine"
-cd /workspace/aphrodite-engine
+# Ensure not to be in /workspace/aphrodite-engine, otherwise there will be errors
+cd /
 source /venv/bin/activate
 export HF_HOME="/workspace"
 
