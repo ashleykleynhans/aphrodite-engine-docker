@@ -17,7 +17,7 @@ nohup python3 -m aphrodite.endpoints.openai.api_server \
     ${NUM_GPUS:+--tensor-parallel-size $NUM_GPUS} \
     ${GPU_MEMORY_UTILIZATION:+--gpu-memory-utilization $GPU_MEMORY_UTILIZATION} \
     ${QUANTIZATION:+--quantization $QUANTIZATION} \
-    ${ENFORCE_EAGER:+--enforce-eager} \
+    ${ENFORCE_EAGER:+--enforce-eager $ENFORCE_EAGER} \
     ${KOBOLD_API:+--launch-kobold-api} \
     ${CMD_ADDITIONAL_ARGUMENTS} > /workspace/logs/aphrodite-engine.log 2>&1 &
 

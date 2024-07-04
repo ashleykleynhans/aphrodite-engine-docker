@@ -104,7 +104,7 @@ You can obviously substitute the image name and tag with your own.
 - `ENFORCE_EAGER`: Use eager mode for model execution. Set to `True` to enable. This will save some VRAM but will slightly reduce throughput.
 - `KOBOLD_API`: Set this to `True` to use a KoboldAI-compatible API instead. This will also launch a web UI at port 5000.
 - `CMD_ADDITIONAL_ARGUMENTS`: Use this to set additional CLI arguments, such as `--load-in-4bit` to load FP16 models in 4bit format. Once you've deployed, please keep an eye on the Logs until you see a successful engine start process.
-- `HUGGING_FACE_HUB_TOKEN`: Your HuggingFace token for private models.
+- `HF_TOKEN`: Your HuggingFace token for private and gated models.
 - `HF_HUB_ENABLE_HF_TRANSFER`: For faster downloads.
 - `API_KEY`: A single or a list of comma-separated API keys to use for the OpenAI endpoint. Use this to secure your instance.
 
@@ -123,7 +123,7 @@ You can obviously substitute the image name and tag with your own.
 | ENFORCE_EAGER             | False                              |
 | KOBOLD_API                | False                              |
 | CMD_ADDITIONAL_ARGUMENTS  | --load-in-4bit --max-log-len 0     |
-| HUGGING_FACE_HUB_TOKEN    | (not set)                          |
+| HF_TOKEN                  | (not set)                          |
 | HF_HUB_ENABLE_HF_TRANSFER | 1                                  |
 | NUMBA_CACHE_DIR           | /tmp/numba_cache                   |
 | API_KEY                   | (not set)                          |
