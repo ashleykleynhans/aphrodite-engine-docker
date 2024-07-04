@@ -72,7 +72,6 @@ docker run -d \
   -p 2999:2999 \
   -p 5000:5001 \
   -p 7777:7777 \
-  -p 7860:7861 \
   -p 8888:8888 \
   -e JUPYTER_PASSWORD=Jup1t3R! \
   ashleykza/aphrodite-engine:latest
@@ -86,7 +85,6 @@ You can obviously substitute the image name and tag with your own.
 |--------------|---------------|--------------------------------------------------|
 | 5000         | 5001          | OpenAI API + KoboldAI API + KoboldAI Lite Web UI |
 | 7777         | 7777          | Code Server                                      |
-| 7860         | 7861          | Aphrodite Engine (OpenAI compatible API)         |
 | 8888         | 8888          | Jupyter Lab                                      |
 | 2999         | 2999          | RunPod File Uploader                             |
 
