@@ -16,8 +16,8 @@
 * Ubuntu 22.04 LTS
 * CUDA 12.1
 * Python 3.10.12
-* Torch 2.3.1
-* xformers 0.0.27
+* Torch 2.3.0
+* xformers 0.0.26.post1
 * [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)
 * [code-server](https://github.com/coder/code-server)
 * [aphrodite-engine](https://github.com/PygmalionAI/aphrodite-engine) v0.5.3

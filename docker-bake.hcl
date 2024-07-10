@@ -31,7 +31,7 @@ variable "CUDA_VERSION" {
 }
 
 variable "TORCH_VERSION" {
-    default = "2.3.1"
+    default = "2.3.0"
 }
 
 target "default" {
@@ -42,7 +42,7 @@ target "default" {
         BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
         INDEX_URL = "https://download.pytorch.org/whl/cu${CU_VERSION}"
         TORCH_VERSION = "${TORCH_VERSION}+cu${CU_VERSION}"
-        XFORMERS_VERSION = "0.0.27"
+        XFORMERS_VERSION = "0.0.26.post1"
         APHRODITE_VERSION = "v0.5.3"
     }
 }
